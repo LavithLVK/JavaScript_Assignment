@@ -1,0 +1,53 @@
+#mainDiv{
+  background-color: #e0ebeb;
+  height: 100vh;
+}
+#headerText{
+  width: 100%;
+  padding: 30px;
+}
+#completedCount{
+  float: left;
+}
+#pendingCount{
+  float: left;
+  padding-left: 30px;
+}
+#progress{
+  float: left;
+  padding-left: 30px;
+}
+
+#addDiv{
+  padding:30px;
+  align-items: center;
+  text-align: center;
+}
+
+#taskArea{
+  width:250px;
+  background-color: #e0ebeb;
+  border-style: solid;
+  border-color: purple;
+  border-radius:5px;
+}
+#statusDrop{
+  width: 150px;
+  margin: 10px;
+}
+#tagInput{
+  margin: 10px;
+  margin-right: 0px;
+  width : 150px;
+}
+#addButton{
+  width: 70px;
+  margin-left: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+#taskTab{
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #ffd480;
+}

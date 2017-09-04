@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title="LVK TODO's List"/>
+  <link rel="stylesheet" href="TO_DO.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div id="mainDiv">
+    <div id="headerText" class="row">
+      <p id="completedCount">Completed Tasks : 0</p>
+      <p id="pendingCount">Pending Tasks : 0</p>
+      <p id="progress">Progress : 0%</p>
+    </div>
+    <form id="addDiv" onsubmit="addOrUpdateTask()">
+      <label for="taskArea" style="margin-bottom :20px;">Task Name :</label>
+     <textarea id="taskArea" name ="task"></textarea>
+      </br>
+      <label for="statusDrop">Status :</label>
+     <select id="statusDrop" name="status">
+      <option value="pending">Pending</option>
+      <option value="completed">Completed</option>
+    </select>
+    <label for="tagInput">Tags :</label>
+    <input id="tagInput" type="text"/><button><i class="fa fa-plus" aria-hidden="true"></i></button></br>
+     <button class="btn-primary" id="addButton" type="submit">ADD</button>
+    </form>
+    <div class="container">
+
+      <!-- <div id="taskTab">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#active">Active</a></li>
+        <li><a data-toggle="tab" href="#completed">Completed</a></li>
+      </ul>
+      <div class="tab-content">
+     <div id="active" class="tab-pane fade in active">
+       <ul>
+     </div>
+     <div id="completed" class="tab-pane fade">
+     </div>
+   </div>
+ </div> -->
+    </div>
+</div>
+  <script type="text/javascript" src="TO_DO.js"/>
+</body>
+</html>
