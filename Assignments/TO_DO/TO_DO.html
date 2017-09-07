@@ -16,55 +16,57 @@
       <p id="pendingCount">Pending Tasks : 0</p>
       <p id="progress">Progress : 0%</p>
     </div>
-    <form id="addDiv" onsubmit="addOrUpdateTask()">
+    <form id="addDiv">
       <label for="taskArea" style="margin-bottom :20px;">Task Name :</label>
      <textarea id="taskArea" name ="task"></textarea>
       </br>
       <label for="statusDrop">Status :</label>
      <select id="statusDrop" name="status">
+       <option value="Select Any1">Select Any1</option>
       <option value="pending">Pending</option>
       <option value="completed">Completed</option>
     </select>
     <label for="tagInput">Tags :</label>
-    <input id="tagInput" type="text"/><button><i class="fa fa-plus" aria-hidden="true"></i></button></br>
+    <input id="tagInput" type="text"/><button id="btnTag" type="button" class="btn-success" onclick="return addTagToList()"><i class="fa fa-plus" aria-hidden="true"></i></button></br>
     <ul id="tagList">
     </ul>
     </br>
-     <button class="btn-primary" id="addButton" type="submit">ADD</button>
+     <button type="button" class="btn-primary" id="addButton" onclick="return addOrUpdate()">ADD</button>
     </form>
-    <div class="container">
-      <table class="table table-bordered table-inverse">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Task Name</th>
-      <th>Tags</th>
-      <th>Status</th>
-      <th>Action steps</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><button style="border-style:none;background-color:#e0ebeb;"><i class="fa fa-edit" aria-hidden="true"></i></button><button style="border-style:none;background-color:#e0ebeb;margin-left:40px;"><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><button style="border-style:none;background-color:#e0ebeb;"><i class="fa fa-edit" aria-hidden="true"></i></button><button style="border-style:none;background-color:#e0ebeb;margin-left:40px;"><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td><button style="border-style:none;background-color:#e0ebeb;"><i class="fa fa-edit" aria-hidden="true"></i></button><button style="border-style:none;background-color:#e0ebeb;margin-left:40px;"><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
-    </tr>
+    <div id="tableContent" >
+  <table id="table" class="table table-bordered table-inverse">
+    <thead>
+       <tr>
+        <th>#</th>
+        <th>Id</th>
+        <th>Task Name</th>
+        <th>Tags</th>
+        <th>Status</th>
+        <th>Action steps</th>
+      </tr>
+    </thead>
+      <tbody>
+      <!--<tr>
+        <th >1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td><button style="border-radius:5px;background-color:#e0ebeb;"><i class="fa fa-edit" aria-hidden="true"></i></button><button style="border-radius:5px;background-color:#e0ebeb;margin-left:40px;"><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td><button style="border-radius:5px;background-color:#e0ebeb;"><i class="fa fa-edit" aria-hidden="true"></i></button><button style="border-radius:5px;background-color:#e0ebeb;margin-left:40px;"><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td><button style="border-radius:5px;background-color:#e0ebeb;"><i class="fa fa-edit" aria-hidden="true"></i></button><button style="border-radius:5px;background-color:#e0ebeb;margin-left:40px;"><i class="fa fa-trash"  aria-hidden="true"></i></button></td>
+      </tr> -->
     </tbody>
 </table>
       <!-- <div id="taskTab">
@@ -82,6 +84,6 @@
  </div> -->
     </div>
 </div>
-  <script type="text/javascript" src="TO_DO.js"/>
+  <script src="TO_DO.js"></script>
 </body>
 </html>
