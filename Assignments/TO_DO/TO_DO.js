@@ -78,15 +78,16 @@ function refreshTable(row, isUpdate){
   tags.innerHTML=tempTask.tags;
   status.innerHTML= tempTask.status;
   actionSteps.innerHTML="<button type=\"button\" onClick=\"editTask(this)\" style=\"border-radius:5px;background-color:#e0ebeb;\"><i class=\"fa fa-edit\" aria-hidden=\"true\"></i></button><button type=\"button\" onClick=\"removeTask(this)\" style=\"border-radius:5px;background-color:#e0ebeb;margin-left:40px;\"><i class=\"fa fa-trash\"  aria-hidden=\"true\"></i></button>"
-  pendingCount.value ="Pending Tasks : "+ taskList.filter(function(task){
+  pCount = taskList.filter(function(task){
     return task.status == "Pending";
   }).length;
-  completedCount.value = "Completed Tasks : " + taskList.filter(function(task){
+  cCount = taskList.filter(function(task){
     return task.status == "Completed";
   }).length;
-  // progress = taskList.forEach(function(task){
-  //   task.status == "Pending";
-  // }).count;
+  pendingCount.textContent ="Pending Tasks : "+ pCount;
+  completedCount.textContent = "Completed Tasks : " + cCount;
+  progressCount = (cCount/taskList.length) * 100 + "";//parseFloat(cCount/taskList.length) * 100;
+  progress.textContent = "Progress : " + progressCount.substring(0,4) + "%";
 }
 
 function editTask(element){

@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <title>ToDo</title>
+    </head>
+    <body>
+        <div>
+            <button type="button" id="activeButton" onclick="toggleSection('Active')">ACTIVE TASKS</button>
+            <button type="button" id="completedButton" onclick="toggleSection('')">COMPLETED TASKS</button>
+            <span id="progressBar">
+                <span id="completed"></span>
+            </span>
+            <span id="progress">0/0</span>
+            <div>
+                <br/>
+                <div id="activeTasks"></div>
+                <div id="completedTasks"></div>
+            </div>
+        </div>
+        <br/>
+        <div>
+            <textarea id="task"></textarea><br/><br/>
+            <button type="button" onclick="addTask()">ADD</button>
+        </div>
+        <span id="error">Please add a valid task.</span>
+        <br/>
+        <div>
+            <button type="button" onclick="removeTasks()">REMOVE TASKS</button>
+            <button type="button" onclick="tasksCompleted()">TASK(S) COMPLETED</button>
+        </div>
+        
+        <script>
+            var tasks = [];
+            var activeSection = document.getElementById('activeTasks');
+            var completedSection = document.getElementById('completedTasks');
+            var taskBox = document.getElementById('task');
+            var error = document.getElementById('error');
+            var activeButton = document.getElementById('activeButton');
+            var completedButton = document.getElementById('completedButton');
+            
+            function addTask() {
+                if(taskBox.value !== ''){
+                    tasks.push({
+                                content : taskBox.value,
+                                isCompleted : false,
+                                isChecked : false
+                            });
+                    taskBox.value='';
+                    if(activeSection.style.display === 'none'){
+                        activeSection.style.display = 'block';
+                        completedSection.style.display = 'none';
+                        activeButton.style.backgroundColor = 'green';
+                        completedButton.style.backgroundColor = 'red';
+                    }
+                    refreshUI();
+                } else {
+                    error.style.display = 'inline';
+                    setTimeout(function() {
+                        error.style.display = 'none';
+                    }, 1500 );
+                }
+            }
+
+            function removeTask(index) {
+                tasks.splice(index,1);
+                refreshUI();
+            }
+
+            function removeTasks() {
+                for(var i = 0; i < tasks.length;){
+                    if(tasks[i].isChecked){
+                        tasks.splice(i,1);
+                    } else {
+                        i++;
+                    }
+                }
+                refreshUI();
+            }
+
+            function check(index) {
+                tasks[index].isChecked = !tasks[index].isChecked;
+            }
+
+            function tasksCompleted(){
+                tasks.forEach(function(task, index){
+                    if(!task.isCompleted && task.isChecked){
+                        task.isCompleted = true;
+                        task.isChecked = false;
+                    }
+                });
+                refreshUI();
+            }
+
+            function toggleSection(section){
+                if(section === 'Active') {
+                    activeSection.style.display = 'block';
+                    completedSection.style.display = 'none';
+                    activeButton.style.backgroundColor = 'green';
+                    completedButton.style.backgroundColor = 'red';
+                } else {
+                    activeSection.style.display = 'none';
+                    completedSection.style.display = 'block';
+                    activeButton.style.backgroundColor = 'red';
+                    completedButton.style.backgroundColor = 'green';
+                }
+            }
+
+            function refreshUI() {
+                var activeTasks = "";
+                var completedTasks = "";
+                var completedTasksCount = 0;
+                tasks.forEach(function(task, index){
+                    var tempTask = '<div><input type="checkbox" onclick="check(' + index + ')" '+ (task.isChecked?"checked":"") +'/>'+
+                                    '<span>'+ task.content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + 
+                                    '</span>&nbsp;&nbsp;<button type="button" onclick="removeTask(' + index + ')">X</button></div>';
+         
+                    if(task.isCompleted){
+                        completedTasks = completedTasks + tempTask;
+                        completedTasksCount++;
+                    } else {
+                        activeTasks = activeTasks + tempTask;
+                    }
+                });
+
+                document.getElementById('completed').style.width = (completedTasksCount / tasks.length * 100) + '%';
+                document.getElementById('progress').innerHTML = completedTasksCount + '/' + tasks.length;
+
+                activeSection.innerHTML = activeTasks;
+                completedSection.innerHTML = completedTasks;
+            }
+
+        </script>
+
+        <style>
+            #activeButton{
+                background-color : green;
+                color : white;
+            }
+
+            #completedButton{
+                background-color : red;
+                color : white;
+            }
+
+            #error{
+                color:red;
+                display:none;
+            }
+
+            #completed{
+                display:inline-block;
+                width:0%;
+                height:15px;
+                background-color:dimgrey;
+            }
+
+            #progressBar{
+                display:inline-block;
+                width:100px;
+                background-color:darkgrey;
+                height:15px;
+            }
+
+            #completedTasks{
+                display: none;
+            }
+
+        </style>
+
+    </body>
+</html>

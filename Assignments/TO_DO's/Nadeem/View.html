@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>ToDo Task</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="todo.js">
+            
+        </script>
+    </head>
+    <body>
+        <div>
+            <div class="TaskList">
+                <h1>Pending Task</h1>
+                <ol id="InCompleted">
+                </ol>
+            </div>
+            <div class="TaskList">
+                <h1>Completed Task</h1>
+                <ol id="Completed">
+                </ol>
+            </div>
+        </div>
+        <div class="bottom">
+            
+            
+                <label for="">Add New Task</label>
+                <input type="text" name="newtask" value=""><br>
+                <input type="button" name="" value="submit" onclick="addTask()">
+           
+            <div>
+                <h2>Percentage of Task Completed</h2>
+                <p id="TaskPercentage"></p>
+            </div>
+        </div>
+
+    </body>
+</html>

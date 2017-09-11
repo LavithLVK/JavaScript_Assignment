@@ -1,0 +1,16 @@
+body{
+    margin: 2% 4%;
+    background-color: wheat
+}
+.TaskList{
+   display: inline-block;  
+   background-color: white;
+   width: 40%;
+   margin: 2%;
+   text-align: center;
+   
+
+}
+li{
+    border: 5px
+}

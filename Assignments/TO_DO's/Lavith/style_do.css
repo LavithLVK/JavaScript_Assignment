@@ -1,0 +1,49 @@
+.maindiv{
+vertical-align: middle;
+padding-left : 250px;
+padding-top : 50px;
+}
+
+#activeButton{
+	background-color : orange;
+	color : white;
+	margin-right:25px;
+	border: 2px solid;
+    border-radius: 25px;
+}
+
+#completedButton{
+	background-color : gray;
+	color : white;
+	margin-right:25px;
+	border: 2px solid;
+    border-radius: 25px;
+}
+
+#addButton{
+	margin-left:40px;
+	margin-top : 15px;
+}
+
+#error{
+	color:red;
+	display:none;
+}
+
+#completed{
+	display:inline-block;
+	width:0%;
+	height:25px;
+	background-color:dimgrey;
+}
+
+#progressBar{
+	display:inline-block;
+	width:100px;
+	background-color:darkgrey;
+	height:25px;
+}
+
+#completedTasks{
+	display: none;
+}

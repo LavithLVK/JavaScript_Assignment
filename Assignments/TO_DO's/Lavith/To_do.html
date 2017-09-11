@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>ToDo</title>
+		<link rel="stylesheet" href="style_do.css">
+		<script src="script_do.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+		<div class="maindiv">
+        <div>
+            <button type="button" name="activeButton" id="activeButton" onclick="toggleSection('Active')">ACTIVE TASKS</button>
+            <button type="button" name="completedButton" id="completedButton" onclick="toggleSection('')">COMPLETED TASKS</button>
+            
+			<label>Progess : </label>
+			<span  id="progressBar">				
+                <span name="completed" id="completed"></span>
+            </span>
+			
+            <span name="progress" id="progress">0/0</span>
+            <div>
+                <br/>
+                <div id="activeTasks" name="activeTasks" ></div>
+                <div id="completedTasks" name="completedTasks"></div>
+            </div>
+        </div>
+        <br/>
+        <div style="display:flex;">
+            <textarea name ="task" id="task"></textarea>
+            <button id="addButton" type="button" onclick="addTask()">ADD</button>
+        </div>
+        <span id="error">Task name should not be empty.</span>
+        <br/>
+        <div style="margin-top: 25px;">
+            <button class="btn-danger"  style="border: 2px solid;border-radius: 15px;" type="button" onclick="removeTasks()">REMOVE TASKS</button>
+            <button class="btn-success" style="border: 2px solid;border-radius: 15px;" type="button" onclick="tasksCompleted()">TASK(S) COMPLETED</button>
+        </div>
+		</div>
+	</body>
+</html>
+        
